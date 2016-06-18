@@ -1,0 +1,110 @@
+.movement {
+    position: absolute;
+    font-size: 20px;
+    color: limegreen;
+    background-color: transparent;
+    overflow: hidden;
+    animation: moveMinus;
+}
+
+@keyframes moveMinus {
+    to {
+        top: 600px;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.timeSpan {
+    animation: moveMinus infinite;
+}
+
+.body {
+    background-color: #2C3E50;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.container-basic {
+    text-align: left;
+}
+
+.h1, .h2, .h3, .h4, .h5 {
+    font-family: 'Bebas Neue Regular';
+}
+
+.h2 {
+    font-size: 50px;
+}
+
+.h3 {
+    font-size: 40px;
+}
+
+.h4 {
+    font-size: 30px;
+}
+
+.h5 {
+    font-size: 90px;
+    font-size: 5.625rem;
+}
+
+.smiley {
+    font-size: 550px;
+    position: absolute;
+    top: 10%;
+    left: 60%;
+}
+
+h3 {
+    width: 211px;
+    height: 23px;
+    color: #8ac832;
+    style: center;
+}
+
+.title {
+    color: white;
+}
+
+.subtitle {
+    color: #8ac832;
+    font-size: 50px;
+}
+
+.separator {
+    color: white;
+}
+
+.link, .link a {
+    color: #8ac832;
+}
+
+.header-links span:after {
+    content: " |";
+    color: white;
+}
+
+.header-links span:last-child:after {
+    content: "";
+}
+
+.wip, .login, .content {
+    display: none;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 2%;
+    left: 93%;
+    text-align: right;
+}

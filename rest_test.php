@@ -1,0 +1,70 @@
+<?php
+
+include_once 'prod-includes/db_connect.php';
+include_once 'prod-includes/functions.php';
+
+sec_session_start();
+
+if (login_check() == true) {
+    $logged = 'in';
+} else {
+    $logged = 'out';
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Login: Log In</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script type="text/JavaScript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/JavaScript" src="js/sha512.js"></script>
+    <script type="text/JavaScript" src="js/forms.js"></script>
+</head>
+<body>
+
+<?php
+
+if (isset($_GET['error'])) {
+    echo '<p class="error">Error Logging In!</p>';
+}
+
+?>
+
+<form action="prod-includes/process_login.php" method="post" name="login_form">
+    Email: <input type="text" name="email" />
+    Password: <input type="password"
+                     name="password"
+                     id="password"/>
+    <input type="button"
+           value="Login"
+           onclick="formhash(this.form, this.form.password);" />
+</form>
+
+<script type="text/javascript">
+    $.getJSON( "rest/test.json", function( data ) {
+        var items = [];
+        $.each( data, function( key, val ) {
+            items.push( "<li id='" + key + "'>" + val + "</li>" );
+        });
+
+        $( "<ul/>", {
+            "class": "my-new-list",
+            html: items.join( "" )
+        }).appendTo( "body" );
+    });
+</script>
+<?php
+
+if (login_check() == true) {
+    echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
+
+    echo '<p>Do you want to change user? <a href="prod-includes/logout.php">Log out</a>.</p>';
+} else {
+    echo '<p>Currently logged ' . $logged . '.</p>';
+    echo "<p>If you don't have a login, please <a href='register.php'>register</a></p>";
+}
+
+?>
+
+</body>
+</html>
