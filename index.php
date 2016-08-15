@@ -9,6 +9,7 @@ sec_session_start();
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Bot-chan | At your service.</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,11 +19,17 @@ sec_session_start();
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.2"/>
+    <meta name="google-signin-client_id"
+          content="914669485111-da1dk2lhmsir5do7o6v47jmvkb3mue58.apps.googleusercontent.com">
 </head>
 
 <body class="body">
 
-<div id="welcome" class="container">
+<div id="spinner" class="container">
+
+</div>
+
+<div id="welcome" class="container" hidden>
     <div>
         <h1>
             <span id="welcome-title" class="h1 header red-text">I am a bot</span>
@@ -58,6 +65,9 @@ if (login_check() == true) {
     ?>
 
     <div id="login" class="container login content">
+        <div id="signin-button"></div>
+        <a href="#" onclick="signOut();">Sign out</a>
+
         <form id="login-form" action="prod-includes/process_login.php" method="post" name="login_form">
             <h1>
                 <span id="login-title" class="h1 header red-text">Login</span>
@@ -89,10 +99,13 @@ if (login_check() == true) {
 
 <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/material.spinner.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/sha512.js"></script>
 <script type="text/javascript" src="js/forms.js"></script>
 <script type="text/javascript" src="js/login_listener.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=onGAPILoaded" async defer></script>
+<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 
 </body>
 </html>

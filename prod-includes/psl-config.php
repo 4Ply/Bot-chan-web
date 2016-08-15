@@ -8,8 +8,8 @@ define("DATABASE", "secure_login");          // The database name.
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member");
 
-define("SECURE", FALSE);    // FOR DEVELOPMENT ONLY!!!!
+define("SECURE", TRUE);    // FOR DEVELOPMENT ONLY!!!!
 
-define("REST_HOST", "https://app2.bot-chan.com:21000");
+define("REST_HOST", "https://localhost:8443");
 
 ?>

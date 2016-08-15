@@ -45,7 +45,7 @@ if (isset($_GET['error'])) {
 if (login_check() == true) {
     echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
 
-    echo '<p>Do you want to change user? <a href="prod-includes/logout.php">Log out</a>.</p>';
+    echo '<p>Do you want to change users? <a href="prod-includes/logout.php">Log out</a>.</p>';
 } else {
     echo '<p>Currently logged ' . $logged . '.</p>';
     echo "<p>If you don't have a login, please <a href='register.php'>register</a></p>";
