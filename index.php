@@ -1,9 +1,6 @@
 <?php
 
-include_once 'prod-includes/db_connect.php';
-include_once 'prod-includes/functions.php';
-
-sec_session_start();
+require_once "prod-includes/google_auth.php";
 
 ?>
 
@@ -41,32 +38,17 @@ sec_session_start();
 </div>
 
 <?php
-
-
-if (login_check() == true) {
-    ?>
-
-    <div id="logout" class="logout-btn">
-        <a id="btn-logout" href="prod-includes/logout.php" class="waves-effect waves-light btn orange">Logout</a>
-    </div>
-
-    <div id="wip" class="container wip content">
-        <h1>
-            <span id="wip-title" class="h1 header red-text">Oops!</span>
-            <br/>
-            <span id="wip-subtitle" class="h2 header orange-text">This site is not ready yet!</span>
-            <br/>
-            <span id="wip-subtitle" class="h4 header green-text">But you are logged in, awesome!</span>
-        </h1>
-    </div>
-
-    <?php
+if (login_check()) {
+    header('Location: ' . 'home');
 } else {
     ?>
 
     <div id="login" class="container login content">
         <div id="signin-button"></div>
         <a href="#" onclick="signOut();">Sign out</a>
+        <div id="some-content">
+
+        </div>
 
         <form id="login-form" action="prod-includes/process_login.php" method="post" name="login_form">
             <h1>
@@ -100,12 +82,8 @@ if (login_check() == true) {
 <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/material.spinner.min.js"></script>
+<script type="text/javascript" src="js/ui.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/sha512.js"></script>
-<script type="text/javascript" src="js/forms.js"></script>
-<script type="text/javascript" src="js/login_listener.js"></script>
-<script src="https://apis.google.com/js/platform.js?onload=onGAPILoaded" async defer></script>
-<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 
 </body>
 </html>

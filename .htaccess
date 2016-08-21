@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(css|js)($|/) - [L]
+  RewriteRule   test   index.php
+  RewriteRule   g_oauth   signin.php
+  RewriteRule   login   signin.php
+  RewriteRule   signin   signin.php
+  RewriteRule   home   home.php
+  RewriteRule   logout   logout.php
+</IfModule>
